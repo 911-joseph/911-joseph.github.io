@@ -1,25 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>contactme</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Mohamed</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #002b5c;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    nav {
+      background-color: #004aad;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    section {
+      margin: 50px auto;
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #004aad;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea, select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #004aad;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffcc00;
+      color: black;
+    }
+  </style>
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const country = document.getElementById("country").value.trim();
+      const comments = document.getElementById("comments").value.trim();
+
+      if (!name || !email || !country || !comments) {
+        alert("Please fill in all fields before submitting.");
+        return false;
+      }
+
+      alert("Form submitted successfully! Thank you for contacting me.");
+      document.getElementById("contactForm").reset();
+      return true;
+    }
+  </script>
 </head>
 <body>
-    <p><strong>address:</strong>zarqa/alamermohamad</p>
-    <p><strong>phone:</strong>0790000000</p>
-    <p><strong>email:</strong></p>
-    <hr>
-    <form action="contact_me.html" method="post">
-        <label >your Name</label>
-        <input type="text" ><br>
-        <label >YOur Email</label>
-        <input type="email"><br>
-        <label >your message</label><br>
-        <textarea ></textarea><br>
-        <input type="submit" >
+  <header>
+    <h1>Contact Mohamed [Your Last Name]</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact Me</a>
+  </nav>
+
+  <section>
+    <h2>Get in Touch</h2>
+    <form id="contactForm" onsubmit="validateForm(event)">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name">
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country">
+
+      <label for="comments">Your Comments:</label>
+      <textarea id="comments" name="comments"></textarea>
+
+      <button type="submit">Submit</button>
     </form>
+  </section>
 </body>
 </html>
